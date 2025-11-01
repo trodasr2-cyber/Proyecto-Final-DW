@@ -1,5 +1,6 @@
 (function(){
   const { auth, db } = window._f1;
+
   const PILOTOS_IMG = {
     'Oscar Piastri':     'img/pilotos/piastri.png',
     'Lando Norris':      'img/pilotos/lando.png',
@@ -25,19 +26,13 @@
   const PLACEHOLDER_IMG = 'img/pilotos/placeholder.png';
   const imgFor = (name) => PILOTOS_IMG[name] || PLACEHOLDER_IMG;
 
-  let cache = [];         
-  let unsub = null;       
-  let listMount = null;    
+  let cache = [];
+  let unsub = null;
+  let listMount = null;
 
   function userDoc(){
     const uid = auth.currentUser?.uid;
     return uid ? db.collection('users').doc(uid) : null;
-  }
-
-  async function ensureDoc(){
-    const ref = userDoc();
-    if (!ref) return;
-    await ref.set({ favorites: [] }, { merge: true });
   }
 
   async function toggle(name){
@@ -46,12 +41,17 @@
       location.href = 'login.html';
       return;
     }
-    await ensureDoc();
     const isIn = cache.includes(name);
     const op   = isIn
       ? firebase.firestore.FieldValue.arrayRemove(name)
       : firebase.firestore.FieldValue.arrayUnion(name);
-    await ref.set({ favorites: op }, { merge: true });
+
+    try {
+      await ref.set({ favorites: op }, { merge: true });
+  
+    } catch (err) {
+      console.error('[fav] error al guardar:', err);
+    }
   }
 
   function paintButtons(){
@@ -67,7 +67,6 @@
   function mountList(ulId){
     const el = document.getElementById(ulId);
     if (!el) return;
-
     listMount = {
       el,
       render(){
@@ -98,6 +97,8 @@
       cache = arr;
       paintButtons();
       if (listMount) listMount.render();
+    }, err => {
+      console.error('[fav] onSnapshot error:', err);
     });
   }
 

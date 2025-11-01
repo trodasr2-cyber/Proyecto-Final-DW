@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
   const curr = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__list a').forEach(a => {

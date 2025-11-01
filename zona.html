@@ -17,25 +17,34 @@
   <script defer src="js/favoritos.js"></script>
 </head>
 <body>
-<header class="site-topbar">
-  <nav class="site-nav">
-    <a class="nav__brand" href="index.html">
-      <span class="brand-logo">F1</span><span class="brand-text">FanZone</span>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="topbar">
+  <div class="topbar__inner container">
+    <a class="brand" href="index.html" aria-label="Inicio">
+      <span class="brand__mark">F1</span>FanZone
     </a>
 
-    <ul class="nav__menu">
-      <li><a href="pilotos.html"    class="nav-link" id="link-pilotos">Pilotos</a></li>
-      <li><a href="escuderias.html" class="nav-link" id="link-esc">Escuderías</a></li>
-      <li><a href="calendario.html" class="nav-link" id="link-cal">Calendario</a></li>
-      <li><a href="noticias.html"   class="nav-link" id="link-news">Noticias</a></li>
-      <li><a href="contacto.html"   class="nav-link" id="link-contacto">Contacto</a></li>
-    </ul>
+    <button class="topbar__toggle" aria-expanded="false" aria-controls="mainmenu" aria-label="Abrir menú">
+      <span class="topbar__bar"></span>
+      <span class="topbar__bar"></span>
+      <span class="topbar__bar"></span>
+    </button>
+    <nav id="mainmenu" class="menu" aria-label="Navegación principal">
+      <a href="pilotos.html">Pilotos</a>
+      <a href="escuderias.html">Escuderías</a>
+      <a href="calendario.html">Calendario</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
 
-    <div class="nav__actions">
-      <a href="zona.html"        class="btn btn--primary" id="link-zona">Mi Zona</a>
-      <button id="logout-btn"    class="btn btn--ghost">Cerrar sesión</button>
+    <div class="topbar__actions">
+      <a id="nav-login" class="btn btn--ghost" href="login.html">Iniciar Sesión</a>
+      <a id="nav-registro" class="btn btn--primary" href="registro.html">Registro</a>
+
+      <a id="nav-zona" class="btn btn--chip" href="zona.html" style="display:none;">Mi Zona</a>
+      <button id="logout-btn" class="btn btn--ghost" style="display:none;">Cerrar sesión</button>
     </div>
-  </nav>
+  </div>
 </header>
 
 

@@ -19,23 +19,35 @@
 
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav" aria-label="Principal">
-      <a class="nav__brand" href="index.html">F1FanZone</a>
-      <ul class="nav__list">
-        <li><a href="pilotos.html">Pilotos</a></li>
-        <li><a href="escuderias.html">Escuderías</a></li>
-        <li><a href="calendario.html">Calendario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="topbar">
+  <div class="topbar__inner container">
+    <a class="brand" href="index.html" aria-label="Inicio">
+      <span class="brand__mark">F1</span>FanZone
+    </a>
 
-        <li><a href="login.html" id="nav-login">Iniciar Sesión</a></li>
-        <li><a href="registro.html" id="nav-registro">Registro</a></li>
-        <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
-        <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
-      </ul>
+    <button class="topbar__toggle" aria-expanded="false" aria-controls="mainmenu" aria-label="Abrir menú">
+      <span class="topbar__bar"></span>
+      <span class="topbar__bar"></span>
+      <span class="topbar__bar"></span>
+    </button>
+    <nav id="mainmenu" class="menu" aria-label="Navegación principal">
+      <a href="pilotos.html">Pilotos</a>
+      <a href="escuderias.html">Escuderías</a>
+      <a href="calendario.html">Calendario</a>
+      <a href="noticias.html">Noticias</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
-  </header>
+
+    <div class="topbar__actions">
+      <a id="nav-login" class="btn btn--ghost" href="login.html">Iniciar Sesión</a>
+      <a id="nav-registro" class="btn btn--primary" href="registro.html">Registro</a>
+
+      <a id="nav-zona" class="btn btn--chip" href="zona.html" style="display:none;">Mi Zona</a>
+      <button id="logout-btn" class="btn btn--ghost" style="display:none;">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
 
   <main class="wrap">
     <article id="article" class="article">

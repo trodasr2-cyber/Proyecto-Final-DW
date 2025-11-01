@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- ===== Metadatos básicos ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>F1FanZone — Portal de Fórmula 1</title>
   <meta name="description" content="F1FanZone: pilotos, escuderías, calendario y noticias de Fórmula 1. Sitio web responsive con zona exclusiva para usuarios registrados." />
 
-  <!-- Iconos Font Awesome -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -15,39 +13,27 @@
   crossorigin="anonymous"
   referrerpolicy="no-referrer"
 />
-
-  <!-- Estilos y script principal (se agregará CSS en el Bloque 2) -->
   <link rel="stylesheet" href="css/styles.css">
-  <!-- ===== Firebase SDKs ===== -->
+
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
-
-  <!-- ===== Scripts del proyecto ===== -->
   <script defer src="js/auth.js"></script>
   <script defer src="js/main.js"></script>
 </head>
 <body>
-  <!-- Enlace de salto para accesibilidad (ir directo al contenido) -->
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-
-  <!-- ===== Cabecera / Navegación ===== -->
-<!-- ===== Topbar “glass” ===== -->
 <header class="topbar">
   <div class="topbar__inner container">
-    <!-- Brand -->
     <a class="brand" href="index.html" aria-label="Inicio">
       <span class="brand__mark">F1</span>FanZone
     </a>
 
-    <!-- Toggle (mobile) -->
     <button class="topbar__toggle" aria-expanded="false" aria-controls="mainmenu" aria-label="Abrir menú">
       <span class="topbar__bar"></span>
       <span class="topbar__bar"></span>
       <span class="topbar__bar"></span>
     </button>
-
-    <!-- Menú principal -->
     <nav id="mainmenu" class="menu" aria-label="Navegación principal">
       <a href="pilotos.html">Pilotos</a>
       <a href="escuderias.html">Escuderías</a>
@@ -56,7 +42,6 @@
       <a href="contacto.html">Contacto</a>
     </nav>
 
-    <!-- Acciones (auth) -->
     <div class="topbar__actions">
       <a id="nav-login" class="btn btn--ghost" href="login.html">Iniciar Sesión</a>
       <a id="nav-registro" class="btn btn--primary" href="registro.html">Registro</a>
@@ -67,10 +52,7 @@
   </div>
 </header>
 
-
-  <!-- ===== Contenido principal ===== -->
   <main>
-  <!-- HERO -->
 <section class="hero hero--centered">
   <div class="container hero__wrap">
     <div class="hero__text">
@@ -88,7 +70,6 @@
   </div>
 </section>
 
-  <!-- HIGHLIGHTS / STATS -->
   <section class="highlights">
     <div class="container highlights__grid">
       <article class="hl">
@@ -110,7 +91,6 @@
     </div>
   </section>
 
-  <!-- EXPLORA -->
   <section class="block">
     <div class="container">
       <h2 class="section-title"><span>Explora</span></h2>
@@ -155,7 +135,6 @@
     </div>
   </section>
 
-  <!-- CTA / ZONA EXCLUSIVA -->
   <section class="cta">
     <div class="container cta__wrap">
       <div class="cta__text">
@@ -167,7 +146,6 @@
   </section>
 </main>
 
-<!-- ===== Redes Sociales ===== -->
 <section class="socials">
   <div class="container socials__wrap">
     <h2 class="section-title socials__title">
@@ -180,35 +158,31 @@
     </p>
 
     <div class="socials__icons">
-      <!-- Facebook -->
+    
       <a href="https://www.facebook.com/Formula1" class="social-icon fb" target="_blank" rel="noopener" aria-label="Facebook">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
           <path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.01 3.66 9.16 8.44 9.94v-7.03H8.08V12.1h2.36v-1.9c0-2.33 1.39-3.62 3.52-3.62.71 0 1.67.13 1.67.13v1.84h-.94c-.93 0-1.23.58-1.23 1.17v1.39h2.09l-.33 2.87h-1.76v7.03C18.34 21.21 22 17.07 22 12.06z"/>
         </svg>
       </a>
 
-      <!-- Instagram -->
       <a href="https://www.instagram.com/f1/" class="social-icon ig" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
           <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 7.1a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 18 7.1z"/>
         </svg>
       </a>
 
-      <!-- X / Twitter -->
       <a href="https://x.com/f1" class="social-icon tw" target="_blank" rel="noopener" aria-label="X (Twitter)">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
           <path d="M17.23 3H20l-6.47 7.39L21.5 21h-5.57l-4.36-5.03L6.51 21H3.73l7.05-8.06L2.5 3h5.64l3.93 4.53L17.23 3Zm-1.95 16.2h1.5L8.89 5.7H7.34l7.94 13.5Z"/>
         </svg>
       </a>
 
-      <!-- YouTube -->
       <a href="https://www.youtube.com/F1" class="social-icon yt" target="_blank" rel="noopener" aria-label="YouTube">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
           <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.7 3.5 12 3.5 12 3.5s-7.7 0-9.4.6A3 3 0 0 0 .5 6.2 31.9 31.9 0 0 0 0 12a31.9 31.9 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.7.6 9.4.6 9.4.6s7.7 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.9 31.9 0 0 0 24 12a31.9 31.9 0 0 0-.5-5.8ZM9.75 15.5v-7l6 3.5-6 3.5Z"/>
         </svg>
       </a>
 
-      <!-- TikTok -->
       <a href="https://www.tiktok.com/@f1?_r=1&_t=ZM-911TS6GTHTM" class="social-icon tk" target="_blank" rel="noopener" aria-label="TikTok">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
           <path d="M21 8.5a7.1 7.1 0 0 1-4-1.28v6.4a6.12 6.12 0 1 1-6.12-6.12c.39 0 .78.04 1.15.12v2.53a3.66 3.66 0 1 0 2.47 3.46V2h2.53a7.1 7.1 0 0 0 4 4v2.5Z"/>
@@ -218,8 +192,6 @@
   </div>
 </section>
 
-
-  <!-- ===== Pie de página ===== -->
   <footer class="site-footer">
     <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
   </footer>

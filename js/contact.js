@@ -1,7 +1,3 @@
-/* contact.js — Unificado
-   Requiere window._f1 = { auth, db } (expuesto en auth.js)
-*/
-
 document.addEventListener('DOMContentLoaded', () => {
   const f1 = window._f1 || {};
   const { auth, db } = f1;
@@ -10,16 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Utilidad: obtener el primer elemento que exista por una lista de IDs
   const byIds = (ids) => ids.map(id => document.getElementById(id)).find(Boolean) || null;
 
-  // Soporta ambos esquemas de IDs: "contact-*" y "c-*"
   const form  = byIds(['contact-form', 'c-form']);
   const nameI = byIds(['contact-name', 'c-name']);
   const mailI = byIds(['contact-email', 'c-email']);
   const msgI  = byIds(['contact-text', 'c-msg']);
-  const help  = byIds(['contact-msg', 'c-help']);  // feedback al usuario
-  const sendB = byIds(['contact-send', 'c-send']); // botón Enviar
+  const help  = byIds(['contact-msg', 'c-help']);  
+  const sendB = byIds(['contact-send', 'c-send']);
 
   if (!form || !nameI || !mailI || !msgI || !sendB) {
     console.warn('[contact] Faltan elementos del formulario en el DOM.');
@@ -27,9 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/i;
-  const NAME_RE  = /^[a-zA-ZÀ-ÿ'´`.\- ]{3,60}$/; // 3–60, letras/espacios/signos comunes
+  const NAME_RE  = /^[a-zA-ZÀ-ÿ'´`.\- ]{3,60}$/; 
 
-  // Mensaje/estados
   function setHelp(ok, text) {
     if (!help) return;
     help.textContent = text || '';
@@ -67,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return { name, mail, msg };
   }
 
-  // Antispam: 30s entre envíos en este navegador
   const LAST_KEY = 'contact_last_sent';
   function canSendNow() {
     const last = Number(localStorage.getItem(LAST_KEY) || 0);
@@ -77,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem(LAST_KEY, String(Date.now()));
   }
 
-  // Evita atar dos veces si el script se incluye por duplicado
   if (form.dataset.bound === '1') return;
   form.dataset.bound = '1';
 
@@ -109,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
         userAgent: navigator.userAgent
       });
 
-      // OK
       setHelp(true, '¡Mensaje enviado!');
       form.reset();
       [nameI, mailI, msgI].forEach(el => {

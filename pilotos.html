@@ -1,27 +1,22 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- ===== Metadatos ===== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pilotos — F1FanZone</title>
   <meta name="description" content="Lista de pilotos de la temporada de Fórmula 1 en F1FanZone.">
 
-  <!-- ===== Enlace a los estilos globales ===== -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- ===== Firebase SDKs ===== -->
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
 
-  <!-- ===== Scripts del proyecto ===== -->
   <script defer src="js/auth.js"></script>
   <script defer src="js/main.js"></script>
   <script defer src="js/favoritos.js"></script>
 </head>
 <body>
-  <!-- ===== Navegación principal ===== -->
   <header class="site-header">
   <nav class="nav" aria-label="Principal">
     <a class="nav__brand" href="index.html">F1FanZone</a>
@@ -31,18 +26,12 @@
       <li><a href="calendario.html">Calendario</a></li>
       <li><a href="noticias.html">Noticias</a></li>
       <li><a href="contacto.html">Contacto</a></li>
-
-
-      <li><a href="login.html" id="nav-login">Iniciar Sesión</a></li>
-      <li><a href="registro.html" id="nav-registro">Registro</a></li>
       <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
       <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
     </ul>
   </nav>
   </header>
 
-
-  <!-- ===== Contenido principal ===== -->
   <main>
   <h1>Pilotos</h1>
 
@@ -169,7 +158,6 @@
   </section>
 </main>
 
-  <!-- ===== Pie de página ===== -->
   <footer class="site-footer">
     <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
   </footer>

@@ -7,12 +7,10 @@
   <meta name="description" content="Zona exclusiva para usuarios registrados.">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- ===== Firebase SDKs (compat) ===== -->
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
 
-  <!-- ===== Scripts del proyecto ===== -->
   <script defer src="js/auth.js"></script>
   <script defer src="js/main.js"></script>
   <script defer src="js/zona.js"></script>
@@ -33,9 +31,7 @@
       <li><a href="contacto.html"   class="nav-link" id="link-contacto">Contacto</a></li>
     </ul>
 
-    <!-- Acciones a la derecha (cambia según sesión) -->
     <div class="nav__actions">
-      <!-- Estado SI logueado -->
       <a href="zona.html"        class="btn btn--primary" id="link-zona">Mi Zona</a>
       <button id="logout-btn"    class="btn btn--ghost">Cerrar sesión</button>
     </div>
@@ -49,14 +45,12 @@
     <section>
       <h2>Mis Pilotos Favoritos</h2>
       <ul id="favoritos-list" class="list" aria-live="polite">
-        <!-- Se llena por JS (si luego lo implementas) -->
       </ul>
       <p class="help">Marca favoritos en la sección “Pilotos”</p>
     </section>
 
   <section style="margin-top:20px">
     <h2>Predicción de ganador (próxima carrera)</h2>
-    <!-- NUEVO: tarjeta con imagen de la predicción -->
     <div id="pred-actual" class="pred-card" style="display:none">
       <img id="pred-img" alt="Piloto predicción">
       <div>

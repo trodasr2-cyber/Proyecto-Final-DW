@@ -1,7 +1,5 @@
 (function(){
   const { auth, db } = window._f1;
-
-  // ===== Mapa Piloto → Imagen (ajusta rutas si difieren) =====
   const PILOTOS_IMG = {
     'Oscar Piastri':     'img/pilotos/piastri.png',
     'Lando Norris':      'img/pilotos/lando.png',
@@ -27,12 +25,10 @@
   const PLACEHOLDER_IMG = 'img/pilotos/placeholder.png';
   const imgFor = (name) => PILOTOS_IMG[name] || PLACEHOLDER_IMG;
 
-  // ===== Estado =====
-  let cache = [];          // favoritos actuales (array de nombres)
-  let unsub = null;        // listener a Firestore
-  let listMount = null;    // {el, render} para Mi Zona
+  let cache = [];         
+  let unsub = null;       
+  let listMount = null;    
 
-  // ===== Helpers =====
   function userDoc(){
     const uid = auth.currentUser?.uid;
     return uid ? db.collection('users').doc(uid) : null;
@@ -41,15 +37,12 @@
   async function ensureDoc(){
     const ref = userDoc();
     if (!ref) return;
-    // Crea doc si no existe
     await ref.set({ favorites: [] }, { merge: true });
   }
 
-  // ===== API: alternar un favorito =====
   async function toggle(name){
     const ref = userDoc();
     if (!ref){
-      // si no hay sesión, manda a login
       location.href = 'login.html';
       return;
     }
@@ -59,10 +52,8 @@
       ? firebase.firestore.FieldValue.arrayRemove(name)
       : firebase.firestore.FieldValue.arrayUnion(name);
     await ref.set({ favorites: op }, { merge: true });
-    // No actualizamos cache aquí: onSnapshot lo hará
   }
 
-  // ===== UI: pintar botones en pilotos.html =====
   function paintButtons(){
     document.querySelectorAll('.fav-btn').forEach(btn => {
       const name = btn.dataset.name;
@@ -73,7 +64,6 @@
     });
   }
 
-  // ===== UI: montar lista (Mi Zona) =====
   function mountList(ulId){
     const el = document.getElementById(ulId);
     if (!el) return;
@@ -97,7 +87,6 @@
     listMount.render();
   }
 
-  // ===== Suscripción a cambios del usuario =====
   function watch(){
     if (unsub) { try { unsub(); } catch(_) {} unsub = null; }
     const ref = userDoc();
@@ -112,20 +101,16 @@
     });
   }
 
-  // Cambios de sesión
   auth.onAuthStateChanged(() => {
     if (unsub) { try { unsub(); } catch(_) {} unsub = null; }
     cache = [];
     paintButtons();
     if (listMount) listMount.render();
-    // si hay usuario, observa
     if (auth.currentUser) watch();
   });
 
-  // ===== Exponer API a main.js =====
   window._fav = { toggle, paintButtons, mountList };
 
-  // ===== Delegar clicks de botones (en Pilotos) =====
   document.addEventListener('click', (e) => {
     const btn = e.target.closest('.fav-btn');
     if (!btn) return;

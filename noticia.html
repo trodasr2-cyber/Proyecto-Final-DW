@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Calendario — F1FanZone</title>
-  <meta name="description" content="Fechas y circuitos de la temporada de Fórmula 1.">
+  <title>Noticia — F1FanZone</title>
+  <meta name="description" content="Detalle de noticia de la Fórmula 1.">
   <link rel="stylesheet" href="css/styles.css">
 
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
@@ -14,8 +14,9 @@
   <script defer src="js/auth.js"></script>
   <script defer src="js/main.js"></script>
 
-  <script defer src="js/calendar-data.js"></script>
-  <script defer src="js/calendario.js"></script>
+  <script defer src="js/news-data.js"></script>
+  <script defer src="js/noticia.js"></script>
+
 </head>
 <body>
   <header class="site-header">
@@ -27,14 +28,19 @@
         <li><a href="calendario.html">Calendario</a></li>
         <li><a href="noticias.html">Noticias</a></li>
         <li><a href="contacto.html">Contacto</a></li>
+
+        <li><a href="login.html" id="nav-login">Iniciar Sesión</a></li>
+        <li><a href="registro.html" id="nav-registro">Registro</a></li>
         <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
         <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section id="calendar-grid" class="calendar-grid" aria-live="polite"></section>
+  <main class="wrap">
+    <article id="article" class="article">
+ 
+    </article>
   </main>
 
   <footer class="site-footer">

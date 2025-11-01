@@ -1,9 +1,3 @@
-/*************************************************
- * auth.js — Registro, Login, Logout y Protección
- * Requiere: firebase-app-compat.js y firebase-auth-compat.js
- **************************************************/
-
-// --- Config app ---
   const firebaseConfig = {
     apiKey: "AIzaSyBPNqmImIuNBt_u2XsI17RazJnvWXwMjr4",
     authDomain: "f1fanzone-7ef68.firebaseapp.com",
@@ -18,11 +12,8 @@ const app = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db   = firebase.firestore();
 
-//  Persistencia local (quedar logueado)
 auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(console.error);
 
-
-// ====== Helpers ======
 function inPage(name){ 
   const p = location.pathname.toLowerCase();
   return p.endsWith('/'+name) || p.endsWith(name);
@@ -47,7 +38,6 @@ function updateNav(user){
   }
 }
 
-// ====== Observador global ======
 auth.onAuthStateChanged((user) => {
   updateNav(user);
 
@@ -55,21 +45,17 @@ auth.onAuthStateChanged((user) => {
   const inReg    = inPage('registro.html');
   const inZona   = inPage('zona.html');
 
-  // Proteger zona
   if (inZona && !user){
     location.replace('login.html');
     return;
   }
 
-  // Ya con sesión → manda a zona desde login/registro
   if ((inLogin || inReg) && user){
     location.replace('zona.html');
   }
 });
 
-// ====== Listeners de UI ======
 document.addEventListener('DOMContentLoaded', () => {
-  // Logout
   const logoutBtn = document.getElementById('logout-btn');
   if (logoutBtn){
     logoutBtn.addEventListener('click', async () => {
@@ -78,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // LOGIN
   const loginForm = document.getElementById('login-form');
   if (loginForm){
     loginForm.addEventListener('submit', async (e) => {
@@ -88,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const msg   = document.getElementById('login-msg');
       try{
         await auth.signInWithEmailAndPassword(email, pass);
-        // Fallback: redirige inmediato por si el onAuth tarda
         location.replace('zona.html');
       } catch(err){
         if (msg) msg.textContent = traducir(err.code, err.message);
@@ -96,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // REGISTRO
   const regForm = document.getElementById('register-form');
   if (regForm){
     regForm.addEventListener('submit', async (e) => {
@@ -106,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const msg   = document.getElementById('reg-msg');
       try{
         await auth.createUserWithEmailAndPassword(email, pass);
-        // Fallback: redirige inmediato
         location.replace('zona.html');
       } catch(err){
         if (msg) msg.textContent = traducir(err.code, err.message);
@@ -129,5 +111,4 @@ function traducir(code, fallback){
   return map[code] || fallback || 'Ocurrió un error.';
 }
 
-// Export opcional
 window._f1 = { auth, db };

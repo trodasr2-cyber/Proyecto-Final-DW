@@ -1,4 +1,3 @@
-/* global firebase */
 document.addEventListener('DOMContentLoaded', () => {
   const { auth, db } = window._f1;
   const $ = (id) => document.getElementById(id);
@@ -49,9 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     card.style.display = 'grid';
   }
 
-  // Limpia UI
   function resetUI() {
-    if (input) input.value = '';           // <- YA NO mostramos la predicción en el input
+    if (input) input.value = '';          
     if (msg) { msg.textContent = ''; msg.removeAttribute('style'); }
     renderPrediction(null);
   }
@@ -72,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
       await ref.set({ createdAt: firebase.firestore.FieldValue.serverTimestamp() }, { merge: true });
     } catch {}
 
-    // CARGA INICIAL -> solo tarjeta, NO tocar el input
     try {
       const snap = await ref.get();
       const data = snap.exists ? (snap.data() || {}) : {};
@@ -80,7 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
       renderPrediction(pred || null);
     } catch (e) { console.error('[zona] get:', e); }
 
-    // TIEMPO REAL -> solo tarjeta, NO tocar el input
     unsub = ref.onSnapshot(
       (snap) => {
         const data = snap.exists ? (snap.data() || {}) : {};
@@ -112,15 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
           { merge: true }
         );
 
-        // feedback
-        msg.textContent = 'Predicción guardada ✅';
+        msg.textContent = 'Predicción guardada';
         msg.style.color = '#00ff6a';
 
-        // Limpia y deja que onSnapshot refresque la tarjeta
         input.value = '';
         input.blur();
 
-        // Oculta el mensaje luego de un momento
         setTimeout(() => { if (msg) msg.textContent = ''; }, 1800);
       } catch (e) {
         console.error('[zona] guardar:', e);

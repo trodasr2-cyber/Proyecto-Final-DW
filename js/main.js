@@ -6,21 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (href === curr) a.setAttribute('aria-current', 'page');
   });
 
-  // --- Favoritos por usuario (usa favoritos.js) ---
-  const fav = window._fav; // expuesto por favoritos.js
-  if (!fav) return;        // si favoritos.js no está cargado en esta página, salimos
+  const fav = window._fav; 
+  if (!fav) return;       
 
-  // En la página de Pilotos: botón de favorito por tarjeta
   document.querySelectorAll('.fav-btn').forEach(btn => {
     btn.addEventListener('click', async () => {
-      await fav.toggle(btn.dataset.name); // alterna en Firestore por UID
+      await fav.toggle(btn.dataset.name); 
     });
   });
 
-  // Pinta el estado inicial de los botones según el usuario activo
   fav.paintButtons();
 
-  // En la página "Mi Zona": montar la lista si existe el UL
   const listEl = document.getElementById('favoritos-list');
   if (listEl) fav.mountList('favoritos-list');
 });

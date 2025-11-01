@@ -6,42 +6,35 @@
   <title>Noticias — F1FanZone</title>
   <meta name="description" content="Noticias y resúmenes de la Fórmula 1.">
   <link rel="stylesheet" href="css/styles.css">
-  <!-- ===== Firebase SDKs ===== -->
+
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
 
-  <!-- ===== Scripts del proyecto ===== -->
   <script defer src="js/auth.js"></script>
   <script defer src="js/main.js"></script>
+  <script defer src="js/news-data.js"></script>
+  <script defer src="js/noticias.js"></script>
+
 </head>
 <body>
   <header class="site-header">
-  <nav class="nav" aria-label="Principal">
-    <a class="nav__brand" href="index.html">F1FanZone</a>
-    <ul class="nav__list">
-      <li><a href="pilotos.html">Pilotos</a></li>
-      <li><a href="escuderias.html">Escuderías</a></li>
-      <li><a href="calendario.html">Calendario</a></li>
-      <li><a href="noticias.html">Noticias</a></li>
-      <li><a href="contacto.html">Contacto</a></li>
-
-      <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
-      <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
-    </ul>
-  </nav>
+    <nav class="nav" aria-label="Principal">
+      <a class="nav__brand" href="index.html">F1FanZone</a>
+      <ul class="nav__list">
+        <li><a href="pilotos.html">Pilotos</a></li>
+        <li><a href="escuderias.html">Escuderías</a></li>
+        <li><a href="calendario.html">Calendario</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
+        <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <h1>Noticias</h1>
-    <article class="news">
-      <h2>Titular 1</h2>
-      <p>Resumen de la noticia 1…</p>
-    </article>
-    <article class="news">
-      <h2>Titular 2</h2>
-      <p>Resumen de la noticia 2…</p>
-    </article>
+    <section class="news-grid" id="news-grid"></section>
   </main>
 
   <footer class="site-footer">

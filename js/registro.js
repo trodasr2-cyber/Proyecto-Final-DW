@@ -1,17 +1,10 @@
-/********************************************
- * Registro de usuario con Firebase Auth
- * Proyecto: F1FanZone
- ********************************************/
-
 function registrar() {
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('contrasena').value.trim();
   const mensaje = document.getElementById('mensaje');
 
-  // Limpia mensajes anteriores
   mensaje.textContent = "";
 
-  // Validaciones básicas antes de enviar a Firebase
   if (!email || !password) {
     mensaje.textContent = "Por favor completa ambos campos.";
     return;
@@ -23,7 +16,6 @@ function registrar() {
 
   console.log("[auth] Intentando crear usuario con:", email);
 
-  // Crear usuario en Firebase Auth
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -40,7 +32,6 @@ function registrar() {
     });
 }
 
-// Detectar cuando el formulario se envía 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form-registro');
   if (form) {

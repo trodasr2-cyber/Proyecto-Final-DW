@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- ===== Metadatos ===== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pilotos — F1FanZone</title>
+  <meta name="description" content="Lista de pilotos de la temporada de Fórmula 1 en F1FanZone.">
+
+  <!-- ===== Enlace a los estilos globales ===== -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- ===== Firebase SDKs ===== -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===== Scripts del proyecto ===== -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/favoritos.js"></script>
+</head>
+<body>
+  <!-- ===== Navegación principal ===== -->
+  <header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a class="nav__brand" href="index.html">F1FanZone</a>
+    <ul class="nav__list">
+      <li><a href="pilotos.html">Pilotos</a></li>
+      <li><a href="escuderias.html">Escuderías</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+
+
+      <li><a href="login.html" id="nav-login">Iniciar Sesión</a></li>
+      <li><a href="registro.html" id="nav-registro">Registro</a></li>
+      <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
+      <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
+    </ul>
+  </nav>
+  </header>
+
+
+  <!-- ===== Contenido principal ===== -->
+  <main>
+  <h1>Pilotos</h1>
+
+  <section class="drivers">
+    <article class="driver-card">
+      <img src="img/pilotos/piastri.png" alt="Oscar Piastri" loading="lazy">
+      <h3>Oscar Piastri</h3>
+      <button class="fav-btn" data-name="Oscar Piastri">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/lando.png" alt="Lando Norris" loading="lazy">
+      <h3>Lando Norris</h3>
+      <button class="fav-btn" data-name="Lando Norris">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/russell.png" alt="George Russell" loading="lazy">
+      <h3>George Russell</h3>
+      <button class="fav-btn" data-name="George Russell">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/antonelli.png" alt="Kimi Antonelli" loading="lazy">
+      <h3>Kimi Antonelli</h3>
+      <button class="fav-btn" data-name="Kimi Antonelli">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/lecrerc.png" alt="Charles Lecrerc" loading="lazy">
+      <h3>Charles Lecrerc</h3>
+      <button class="fav-btn" data-name="Charles Lecrerc">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/hamilton.png" alt="Lewis Hamilton" loading="lazy">
+      <h3>Lewis Hamilton</h3>
+      <button class="fav-btn" data-name="Lewis Hamilton">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/verstappen.png" alt="Max Verstappen" loading="lazy">
+      <h3>Max Verstappen</h3>
+      <button class="fav-btn" data-name="Max Verstappen">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/tsunoda.png" alt="Yuki Tsunoda" loading="lazy">
+      <h3>Yuki Tsunoda</h3>
+      <button class="fav-btn" data-name="Yuki Tsunoda">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/albon.png" alt="Alexander Albon" loading="lazy">
+      <h3>Alexander Albon</h3>
+      <button class="fav-btn" data-name="Alexander Albon">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/sainz.png" alt="Carlos Sainz" loading="lazy">
+      <h3>Carlos Sainz</h3>
+      <button class="fav-btn" data-name="Carlos Sainz">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/lawson.png" alt="Liam Lawson" loading="lazy">
+      <h3>Liam Lawson</h3>
+      <button class="fav-btn" data-name="Liam Lawson">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/hadjr.png" alt="Isack Hadjar" loading="lazy">
+      <h3>Isack Hadjar</h3>
+      <button class="fav-btn" data-name="Isack Hadjar">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/stroll.png" alt="Lance Stroll" loading="lazy">
+      <h3>Lance Stroll</h3>
+      <button class="fav-btn" data-name="Lance Stroll">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/alonso.png" alt="Fernando Alonso" loading="lazy">
+      <h3>Fernando Alonso</h3>
+      <button class="fav-btn" data-name="Fernando Alonso">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/nico.png" alt="Nico Hulkenberg" loading="lazy">
+      <h3>Nico Hulkenberg</h3>
+      <button class="fav-btn" data-name="Nico Hulkenberg">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/bortoleto.png" alt="Gabriel Bortoleto" loading="lazy">
+      <h3>Gabriel Bortoleto</h3>
+      <button class="fav-btn" data-name="Gabriel Bortoleto">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/ocon.png" alt="Esteban Ocon" loading="lazy">
+      <h3>Esteban Ocon</h3>
+      <button class="fav-btn" data-name="Esteban Ocon">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/bearman.png" alt="Oliver Bearman" loading="lazy">
+      <h3>Oliver Bearman</h3>
+      <button class="fav-btn" data-name="Oliver Bearman">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/gasly.png" alt="Pierre Gasly" loading="lazy">
+      <h3>Pierre Gasly</h3>
+      <button class="fav-btn" data-name="Pierre Gasly">❤ Agregar a favoritos</button>
+    </article>
+
+    <article class="driver-card">
+      <img src="img/pilotos/colapinto.png" alt="Franco Colapinto" loading="lazy">
+      <h3>Franco Colapinto</h3>
+      <button class="fav-btn" data-name="Franco Colapinto">❤ Agregar a favoritos</button>
+    </article>
+  </section>
+</main>
+
+  <!-- ===== Pie de página ===== -->
+  <footer class="site-footer">
+    <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calendario — F1FanZone</title>
+  <meta name="description" content="Fechas y circuitos de la temporada de Fórmula 1.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- ===== Firebase SDKs ===== -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===== Scripts del proyecto ===== -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a class="nav__brand" href="index.html">F1FanZone</a>
+    <ul class="nav__list">
+      <li><a href="pilotos.html">Pilotos</a></li>
+      <li><a href="escuderias.html">Escuderías</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+
+      <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
+      <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
+    </ul>
+  </nav>
+  </header>
+
+  <main>
+    <h1>Calendario</h1>
+    <div class="table-wrap"></div>
+        <table class="table">
+            <thead><tr><th>Fecha</th><th>Ronda</th><th>País</th></tr></thead>
+            <tbody>
+                <tr><td>14-16 Mar</td><td>Ronda 1</td><td>Australia</td></tr>
+                <tr><td>21-23 Mar</td><td>Ronda 2</td><td>China</td></tr>
+                <tr><td>04-06 Abr</td><td>Ronda 3</td><td>Japon</td></tr>
+                <tr><td>11-13 Abr</td><td>Ronda 4</td><td>Bahrain</td></tr>
+                <tr><td>18-20 Abr</td><td>Ronda 5</td><td>Arabia Saudita</td></tr>
+                <tr><td>02-04 May</td><td>Ronda 6</td><td>Miami</td></tr>
+                <tr><td>16-18 May</td><td>Ronda 7</td><td>Emilia-Romagna</td></tr>
+                <tr><td>23-25 May</td><td>Ronda 8</td><td>Monaco</td></tr>
+                <tr><td>30 May-01 Jun</td><td>Ronda 9</td><td>España</td></tr>
+                <tr><td>13-15 Jun</td><td>Ronda 10</td><td>Canadá</td></tr>
+                <tr><td>27-29 Jun</td><td>Ronda 11</td><td>Austria</td></tr>
+                <tr><td>04-06 Jul</td><td>Ronda 12</td><td>Gran Bretaña</td></tr>
+                <tr><td>25-27 Jul</td><td>Ronda 13</td><td>Bélgica</td></tr>
+                <tr><td>01-03 Ago</td><td>Ronda 14</td><td>Hungría</td></tr>
+                <tr><td>29-31 Ago</td><td>Ronda 15</td><td>Países Bajos</td></tr>
+                <tr><td>05-07 Sep</td><td>Ronda 16</td><td>Italia</td></tr>
+                <tr><td>19-21 Sep</td><td>Ronda 17</td><td>Azerbaijan</td></tr>
+                <tr><td>03-05 Oct</td><td>Ronda 18</td><td>Singapur</td></tr>
+                <tr><td>17-19 Oct</td><td>Ronda 19</td><td>Estados Unidos</td></tr>
+                <tr><td>24-26 Oct</td><td>Ronda 20</td><td>México</td></tr>
+                <tr><td>07-09 Nov</td><td>Ronda 21</td><td>Brasil</td></tr>
+                <tr><td>20-22 Nov</td><td>Ronda 22</td><td>Las Vegas</td></tr>
+                <tr><td>28-30 Nov</td><td>Ronda 23</td><td>Qatar</td></tr>
+                <tr><td>05-07 Dic</td><td>Ronda 24</td><td>Abu Dhabi</td></tr>
+            </tbody>
+        </table>
+     </main>
+
+  <footer class="site-footer">
+    <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
+  </footer>
+</body>
+</html>

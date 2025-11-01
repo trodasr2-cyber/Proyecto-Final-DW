@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto — F1FanZone</title>
+  <meta name="description" content="Formulario de contacto de F1FanZone.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- ===== Firebase SDKs ===== -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===== Scripts del proyecto ===== -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/contact.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a class="nav__brand" href="index.html">F1FanZone</a>
+    <ul class="nav__list">
+      <li><a href="pilotos.html">Pilotos</a></li>
+      <li><a href="escuderias.html">Escuderías</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+
+      <li><a href="registro.html" id="nav-registro">Registro</a></li>
+      <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
+      <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
+    </ul>
+  </nav>
+  </header>
+
+  <main>
+    <h1>Contacto</h1>
+  <form id="contact-form" class="form" autocomplete="off" novalidate>
+    <label for="c-name">Nombre</label>
+    <input id="c-name" type="text" placeholder="Tu nombre completo" />
+
+    <label for="c-email">Correo</label>
+    <input id="c-email" type="email" placeholder="tucorreo@ejemplo.com" />
+
+    <label for="c-msg">Mensaje</label>
+    <textarea id="c-msg" rows="6" placeholder="¿Cómo podemos ayudarte?"></textarea>
+
+    <p id="c-help" class="help" aria-live="polite"></p>
+
+    <button id="c-send" type="submit" class="btn">Enviar</button>
+  </form>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
+  </footer>
+</body>
+</html>

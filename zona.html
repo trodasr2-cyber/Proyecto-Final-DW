@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Zona — F1FanZone</title>
+  <meta name="description" content="Zona exclusiva para usuarios registrados.">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- ===== Firebase SDKs (compat) ===== -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===== Scripts del proyecto ===== -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/zona.js"></script>
+  <script defer src="js/favoritos.js"></script>
+</head>
+<body>
+<header class="site-topbar">
+  <nav class="site-nav">
+    <a class="nav__brand" href="index.html">
+      <span class="brand-logo">F1</span><span class="brand-text">FanZone</span>
+    </a>
+
+    <ul class="nav__menu">
+      <li><a href="pilotos.html"    class="nav-link" id="link-pilotos">Pilotos</a></li>
+      <li><a href="escuderias.html" class="nav-link" id="link-esc">Escuderías</a></li>
+      <li><a href="calendario.html" class="nav-link" id="link-cal">Calendario</a></li>
+      <li><a href="noticias.html"   class="nav-link" id="link-news">Noticias</a></li>
+      <li><a href="contacto.html"   class="nav-link" id="link-contacto">Contacto</a></li>
+    </ul>
+
+    <!-- Acciones a la derecha (cambia según sesión) -->
+    <div class="nav__actions">
+      <!-- Estado SI logueado -->
+      <a href="zona.html"        class="btn btn--primary" id="link-zona">Mi Zona</a>
+      <button id="logout-btn"    class="btn btn--ghost">Cerrar sesión</button>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+    <h1>Mi Zona</h1>
+
+    <section>
+      <h2>Mis Pilotos Favoritos</h2>
+      <ul id="favoritos-list" class="list" aria-live="polite">
+        <!-- Se llena por JS (si luego lo implementas) -->
+      </ul>
+      <p class="help">Marca favoritos en la sección “Pilotos”</p>
+    </section>
+
+  <section style="margin-top:20px">
+    <h2>Predicción de ganador (próxima carrera)</h2>
+    <!-- NUEVO: tarjeta con imagen de la predicción -->
+    <div id="pred-actual" class="pred-card" style="display:none">
+      <img id="pred-img" alt="Piloto predicción">
+      <div>
+        <div class="pred-label">Tu predicción actual</div>
+        <div class="pred-name" id="pred-name">— sin definir —</div>
+      </div>
+    </div>
+
+    <form id="prediccion-form" class="form" autocomplete="off" novalidate>
+      <label for="pred-input">Piloto</label>
+      <input
+        id="pred-input"
+        type="text"
+        placeholder="Escribe el nombre exacto (ej. Lando Norris)"
+        autocapitalize="off"
+        spellcheck="false"
+        inputmode="text"
+      />
+      <button id="pred-btn" type="button" class="btn">Guardar Predicción</button>
+      <p id="pred-msg" class="help" aria-live="polite"></p>
+     </form>
+     </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
+  </footer>
+</body>
+</html>

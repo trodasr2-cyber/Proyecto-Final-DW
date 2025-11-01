@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Escuderías — F1FanZone</title>
+  <meta name="description" content="Información básica de escuderías de Fórmula 1.">
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- ===== Firebase SDKs ===== -->
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore-compat.js"></script>
+
+  <!-- ===== Scripts del proyecto ===== -->
+  <script defer src="js/auth.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+  <nav class="nav" aria-label="Principal">
+    <a class="nav__brand" href="index.html">F1FanZone</a>
+    <ul class="nav__list">
+      <li><a href="pilotos.html">Pilotos</a></li>
+      <li><a href="escuderias.html">Escuderías</a></li>
+      <li><a href="calendario.html">Calendario</a></li>
+      <li><a href="noticias.html">Noticias</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+
+      <li><a href="zona.html" id="nav-zona">Mi Zona</a></li>
+      <li><button id="logout-btn" class="btn btn--alt" style="display:none;">Cerrar sesión</button></li>
+    </ul>
+  </nav>
+  </header>
+
+<main>
+  <h1>Escuderías</h1>
+  <section class="teams">
+    <article class="team-card">
+      <img src="img/escuderias/redbull.png" alt="Logo Red Bull Racing" loading="lazy">
+      <h3>Red Bull Racing</h3>
+      <p>Milton Keynes, Reino Unido</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/mercedes.png" alt="Logo Mercedes" loading="lazy">
+      <h3>Mercedes</h3>
+      <p>Brackley, Reino Unido</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/ferrari.png" alt="Logo Ferrari" loading="lazy">
+      <h3>Ferrari</h3>
+      <p>Maranello, Italia</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/williams.png" alt="Logo Williams" loading="lazy">
+      <h3>Williams</h3>
+      <p>Grove, Reino Unido</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/astonmartin.jpeg" alt="Logo Aston Martin" loading="lazy">
+      <h3>Aston Martin</h3>
+      <p>Silverstone, Reino Unido</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/kicksauber.jpeg" alt="Logo Kick Sauber" loading="lazy">
+      <h3>Kick Sauber</h3>
+      <p>Hinwil, Suiza</p>
+    </article>
+    
+    <article class="team-card">
+      <img src="img/escuderias/racingbulls.png" alt="Logo Racing Bulls" loading="lazy">
+      <h3>Racing Bulls</h3>
+      <p>Faenza, Italia</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/haas.png" alt="Logo Haas" loading="lazy">
+      <h3>Haas</h3>
+      <p>Kannapolis, Estados Unidos</p>
+    </article>
+
+    <article class="team-card">
+      <img src="img/escuderias/alpine.png" alt="Logo Alpine" loading="lazy">
+      <h3>Alpine</h3>
+      <p>Enstone, Reino Unido</p>
+    </article>
+
+  </section>
+</main>
+
+
+  <footer class="site-footer">
+    <small>© 2025 F1FanZone — Proyecto Desarrollo Web.</small>
+  </footer>
+</body>
+</html>
